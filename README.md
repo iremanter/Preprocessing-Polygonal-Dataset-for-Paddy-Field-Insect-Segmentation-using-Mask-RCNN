@@ -2,6 +2,10 @@
 
 Paddy Pests Dataset has been labeled by using CVAT. During the annotation process polygonal annotation technique has been used. Polygonal annotation is a method of labeling objects in images by manually drawing a polygon around the object’s boundaries rather than using simple bounding boxes.
 
+<img width="334" alt="Screenshot 2025-03-14 at 00 43 48" src="https://github.com/user-attachments/assets/69427f31-b00e-4f99-9916-9c4c2b240bbc" /> 
+<img width="330" alt="Screenshot 2025-03-14 at 00 43 54" src="https://github.com/user-attachments/assets/1857212b-ec12-487c-86d3-ea6d3b93366a" />
+<img width="267" alt="Screenshot 2025-03-14 at 00 43 26" src="https://github.com/user-attachments/assets/b60cdcac-2dd4-4fdf-a62f-c73480f4a543" />
+
 Class distribution, image resolution, and the presence of tiny objects have been examined. Here’s the detailed explanation of these factors and Paddy Pests Dataset” examination by considering these factors below:
 - Class Distribution: This refers to the number of images per category such as different insect types in the dataset. A highly imbalanced dataset can lead to biased predictions. In “Paddy Pests Dataset”, class distribution is not good enough since there are not enough pest images. Therefore, applying data augmentation techniques was essential.
 - Image resolution: Image resolution refers to the width × height of images in pixels. In “Paddy Pests Dataset”, resolution is pretty good and it’s easy to differentiate the insects and the backgrounds.
@@ -19,10 +23,15 @@ The stages of the Mask R-CNN model are Backbone Network, Region Proposal Network
 **Uploading Images and Labeled Data**:
 As a first step 135 insect images were uploaded into the train folder and 10 randomly selected images uploaded into the validation folder. Also, labeled data uploaded into labels folder. Then, before diving into training code, all necessary libraries were imported.
 
+<img width="457" alt="Screenshot 2025-03-14 at 00 44 54" src="https://github.com/user-attachments/assets/242bcaee-7a49-4b52-9508-becdc04eeb87" />
+
 **Predicting**:
 The predicting code was created for running inference using a pre-trained Mask R-CNN model. It loaded the trained model with previously saved weights and applied it to a single image to detect and segment insects. The script has processed the image, run it through the network. After that, it has retrieved detection results including bounding boxes, masks, class labels, and confidence scores. Then, it visualized the results using mrcnn.visualize.display_instances(), overlaying detections on the input image. This code is useful for testing model performance on new images and validating the effectiveness of the trained model in real-world scenarios.
 
 **Fine-tuning**:
 Partial fine-tuning has been performed, where only the "heads" of the Mask R-CNN model are trained while the backbone is kept frozen.
 The model is initialized with pretrained weights from the COCO dataset, but certain layers are excluded from loading the pretrained weights and are randomly initialized. By setting layers='heads', the training focuses on the newly added layers and leaving the rest of the network unchanged.
+
+<img width="554" alt="Screenshot 2025-03-14 at 00 45 03" src="https://github.com/user-attachments/assets/05e177c1-ae5f-4ca4-912d-a7616fa85df4" />
+
 In this model, the mAP value was 0.64 before the fine tuning. After the fine-tuning approach was performed, the mAP value became 0.77. When mAP value is between 0.5 and 0.7, it is called as a good performance which means there are still improvement points, especially in some cases where the model misclassified or missed the insects. Fine-tuning has increased the mAP level and when the mAP level is above 0.7, it is called excellent performance where the model is detecting and segmenting insects in many images accurately.
