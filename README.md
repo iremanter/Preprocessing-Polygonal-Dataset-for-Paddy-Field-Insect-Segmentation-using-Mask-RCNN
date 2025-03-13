@@ -3,9 +3,9 @@
 Paddy Pests Dataset has been labeled by using CVAT. During the annotation process polygonal annotation technique has been used. Polygonal annotation is a method of labeling objects in images by manually drawing a polygon around the object’s boundaries rather than using simple bounding boxes.
 
 Class distribution, image resolution, and the presence of tiny objects have been examined. Here’s the detailed explanation of these factors and Paddy Pests Dataset” examination by considering these factors below:
-● Class Distribution: This refers to the number of images per category such as different insect types in the dataset. A highly imbalanced dataset can lead to biased predictions. In “Paddy Pests Dataset”, class distribution is not good enough since there are not enough pest images. Therefore, applying data augmentation techniques was essential.
-● Image resolution: Image resolution refers to the width × height of images in pixels. In “Paddy Pests Dataset”, resolution is pretty good and it’s easy to differentiate the insects and the backgrounds.
-● The presence of tiny objects: In “Paddy Pests Dataset”, there are many small insects which makes detection difficult. Therefore, data augmentation techniques such as scaling help to overcome this difficulty.
+- Class Distribution: This refers to the number of images per category such as different insect types in the dataset. A highly imbalanced dataset can lead to biased predictions. In “Paddy Pests Dataset”, class distribution is not good enough since there are not enough pest images. Therefore, applying data augmentation techniques was essential.
+- Image resolution: Image resolution refers to the width × height of images in pixels. In “Paddy Pests Dataset”, resolution is pretty good and it’s easy to differentiate the insects and the backgrounds.
+- The presence of tiny objects: In “Paddy Pests Dataset”, there are many small insects which makes detection difficult. Therefore, data augmentation techniques such as scaling help to overcome this difficulty.
 
 Mask R-CNN:
 
